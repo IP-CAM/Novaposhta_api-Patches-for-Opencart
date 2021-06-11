@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+	<name>Modification for NovaPoshta API module</name>
+	<version>v0.0.1</version>
+	<author>JD</author>
+	<link>zelenuj@gmail.com</link>
+	<code>Modification for NovaPoshta API module</code>
+	<file path="catalog/model/extension/module/shippingdata.php">
+		<operation>
+			<search><![CDATA[
+            $sql = "SELECT `" . $novaposhta->description_field . "` AS `description` FROM `" . DB_PREFIX . "novaposhta_cities` WHERE 1";
+            ]]></search>
+			<add position="replace"><![CDATA[
+		// << opencart-novaposhta_api-patches.ocmod.xml
+		$sql = "SELECT `" . $novaposhta->description_field . "` AS `description` FROM `" . DB_PREFIX . "novaposhta_cities` nc;
+
+		$sql .= " LEFT JOIN `dm_novaposhta_cities_sort_order` ncso ON (ncso.CityID = nc.CityID)";
+		$sql .= " WHERE 1";
+		// >> opencart-novaposhta_api-patches.ocmod.xml
+            ]]></add>
+		</operation>
+		<operation>
+		    <search><![CDATA[
+		    $sql .= " ORDER BY  `" . $novaposhta->description_field . "`";
+		    ]]></search>
+		    <add position="replace"><![CDATA[
+		// << opencart-novaposhta_api-patches.ocmod.xml
+		$sql .= " ORDER BY ncso.sort_order DESC, `" . $novaposhta->description_field . "`";
+		// >> opencart-novaposhta_api-patches.ocmod.xml
+		    ]]></add>
+		</operation>
+		
+	</file>
+</modification>
