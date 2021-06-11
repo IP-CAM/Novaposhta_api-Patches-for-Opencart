@@ -1,6 +1,6 @@
 <?php
-// v0.0.1
-$check = $this->db->query("SHOW TABLES LIKE `" . DB_PREFIX . "novaposhta_cities_sort_order`");
+// v0.0.3
+$check = $this->db->query("SHOW TABLES LIKE '" . DB_PREFIX . "novaposhta_cities_sort_order'");
 
 if (!$check->num_rows) {
 	$cities = [

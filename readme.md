@@ -2,6 +2,9 @@
 
 ## Правки:
 
+v0.0.3
+- (string)Tablename
+
 v0.0.2
 - DB_PREFIX
 
