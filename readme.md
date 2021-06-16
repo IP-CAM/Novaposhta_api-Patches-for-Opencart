@@ -2,6 +2,9 @@
 
 ## Правки:
 
+v0.0.4
+- create table
+
 v0.0.3
 - (string)Tablename
 

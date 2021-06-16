@@ -1,5 +1,5 @@
 <?php
-// v0.0.3
+// v0.0.4
 $check = $this->db->query("SHOW TABLES LIKE '" . DB_PREFIX . "novaposhta_cities_sort_order'");
 
 if (!$check->num_rows) {
@@ -33,10 +33,12 @@ if (!$check->num_rows) {
 		. ")"
 		. "COLLATE='utf8_general_ci' "
 		. "ENGINE=MyISAM;";
-	$data = "INSERT INTO `" . DB_PREFIX . "novaposhta_cities_sort_order` (`CityID`, `sort_order`) VALUES ";
-	foreach ($cities as $city) {
-		$data .= "(" . implode(',', $city) . "),";
+	if($this->db->query($table)) {
+		$data = "INSERT INTO `" . DB_PREFIX . "novaposhta_cities_sort_order` (`CityID`, `sort_order`) VALUES ";
+		foreach ($cities as $city) {
+			$data .= "(" . implode(',', $city) . "),";
+		}
+		$data = substr($data, 0, -1);
+		$this->db->query($data);
 	}
-	$data = substr($data, 0,-1);
-	$this->db->query($data);
 }
