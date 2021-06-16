@@ -35,8 +35,8 @@ if (!$check->num_rows) {
 		. "ENGINE=MyISAM;";
 	if($this->db->query($table)) {
 		$data = "INSERT INTO `" . DB_PREFIX . "novaposhta_cities_sort_order` (`CityID`, `sort_order`) VALUES ";
-		foreach ($cities as $city) {
-			$data .= "(" . implode(',', $city) . "),";
+		foreach ($cities as $key => $city) {
+			$data .= "('{$key}','{$city}'),";
 		}
 		$data = substr($data, 0, -1);
 		$this->db->query($data);
