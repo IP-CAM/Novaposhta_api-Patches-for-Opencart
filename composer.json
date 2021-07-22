@@ -1,7 +1,7 @@
 {
 	"name": "kotygor/opencart-novaposhta_api-patches",
 	"description": "Modification for NovaPoshta API module",
-	"version": "v0.0.4",
+	"version": "v0.0.5",
 	"type": "opencart-extension",
 	"extra": {
 		"src-dir": "upload",

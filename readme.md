@@ -1,6 +1,9 @@
 #Модифікатор для модуля Нова Пошта API
 
 ## Правки:
+v0.0.5
+Fix install.php
+Fix query in install.xml (ocmod)
 
 v0.0.4
 - create table

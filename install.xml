@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <modification>
 	<name>Modification for NovaPoshta API module</name>
-	<version>v0.0.2</version>
+	<version>v0.0.5</version>
 	<author>JD</author>
 	<link>zelenuj@gmail.com</link>
 	<code>Modification for NovaPoshta API module</code>
@@ -12,7 +12,7 @@
             ]]></search>
 			<add position="replace"><![CDATA[
 		// << opencart-novaposhta_api-patches.ocmod.xml
-		$sql = "SELECT `" . $novaposhta->description_field . "` AS `description` FROM `" . DB_PREFIX . "novaposhta_cities` nc;
+		$sql = "SELECT `" . $novaposhta->description_field . "` AS `description` FROM `" . DB_PREFIX . "novaposhta_cities` nc";
 
 		$sql .= " LEFT JOIN `" . DB_PREFIX . "novaposhta_cities_sort_order` ncso ON (ncso.CityID = nc.CityID)";
 		$sql .= " WHERE 1";
